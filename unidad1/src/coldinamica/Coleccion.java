@@ -15,7 +15,7 @@ public class Coleccion<T> implements TDAColeccion<T> {
     public boolean existe(T valor) {
         for (int i = 0; i < tamanio(); i++) {
             //if(obtener(i)==valor)
-            if (objetos[i] == valor) {
+            if (objetos[i].equals(valor)) {
                 return true;
             }
         }
@@ -26,7 +26,7 @@ public class Coleccion<T> implements TDAColeccion<T> {
     public int buscar(T valor) {
         for (int i = 0; i < tamanio(); i++) {
             //if(obtener(i)==valor)
-            if (objetos[i] == valor) {
+            if (objetos[i].equals(valor)) {
                 return i;
             }
         }

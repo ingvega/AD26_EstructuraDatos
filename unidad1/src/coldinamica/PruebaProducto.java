@@ -14,12 +14,14 @@ public class PruebaProducto {
         Producto agua=new Producto(1,"Agua",15);
         productos.agregar(agua);
         //Instancia anonima
-        productos.agregar(new Producto(5,"Galletas",18));
+       productos.agregar(new Producto(50,"Galletas",180));
         
-        Producto galletas=new Producto(5,"Galletas",18);
+        Producto galletas=new Producto(5,"galletas",18);
+        //productos.agregar(galletas);
         System.out.println(productos.existe(galletas));
         for (int i = 0; i < productos.tamanio(); i++) {
             System.out.println(productos.obtener(i));
+//            System.out.println(productos.obtener(i).toString());
         }
     }
 }
