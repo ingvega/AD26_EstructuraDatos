@@ -2,15 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ed_unidad3;
+package oup.agrupadores;
 
+import java.util.Scanner;
 import java.util.EmptyStackException;
 import java.util.Arrays;
-/**
- *
- * @author paveg
- */
-public class Pila<T> implements TDAPila<T> {
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner lector=new Scanner(System.in);
+        String expresion=lector.nextLine();
+        Pila<Character> simApertura = new Pila<>();
+        for (int i = 0; i < expresion.length(); i++) {
+            char simbolo=expresion.charAt(i);
+            if(simbolo=='[' || simbolo=='(' ||simbolo=='{' ){
+                simApertura.agregar(simbolo);
+                System.out.print(simbolo);
+            }else if(simbolo==']' || simbolo==')' ||simbolo=='}' ){
+                if(simbolo==']' && !simApertura.estaVacia() && 
+                        simApertura.cima().equals('[')){
+                    System.out.print(simbolo);
+                    simApertura.quitar();
+                }
+                //else if
+                //...
+                if(simApertura.cima().equals('('))
+                    System.out.print(")");
+            }
+        }
+    }
+}
+
+interface TDAPila<T> {
+    void agregar(T elemento);
+    T quitar() throws EmptyStackException;
+    boolean estaVacia();
+    T cima() throws EmptyStackException;
+}
+
+class Pila<T> implements TDAPila<T> {
     final int capacidad=10;
     Object elementos[]=new Object[capacidad];
     int canElementos=0;
@@ -51,15 +81,3 @@ public class Pila<T> implements TDAPila<T> {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
