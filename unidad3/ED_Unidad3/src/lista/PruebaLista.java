@@ -15,9 +15,13 @@ public class PruebaLista {
             numeros.agregar(i);
         }
         
-        for (Integer numero : numeros) {
-            System.out.println(numero);
-        }
-        Math.mi
+//        for (Integer numero : numeros) {
+//            System.out.println(numero);
+//        }
+        numeros.eliminar(3); //public T eliminar(int index) {
+        numeros.eliminar(new Integer(3)); // public boolean eliminar(T objeto) {
+        numeros.forEach(numero->System.out.println(numero));
+        
+        
     }
 }

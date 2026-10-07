@@ -7,7 +7,6 @@ package lista;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 /**
  *
  * @author paveg
@@ -23,9 +22,10 @@ public class Lista<T> extends TDALista<T> implements Iterable<T> {
             ultimo = nuevoNodo;
         } else { // Ya hay al menos un elemento en la cola
             ultimo.siguiente = nuevoNodo; // El último actual apunta al nuevo
+            nuevoNodo.anterior = ultimo;
             ultimo = nuevoNodo;           // El nuevo nodo ahora es el último oficial
         }
-        
+
         indice++;
 
     }
@@ -56,6 +56,7 @@ public class Lista<T> extends TDALista<T> implements Iterable<T> {
 
         return (T) primero.dato;
     }
+
     @Override
     public T consultarUltimo() throws NoSuchElementException {
         if (estaVacia()) {
@@ -87,28 +88,77 @@ public class Lista<T> extends TDALista<T> implements Iterable<T> {
 
     @Override
     public T eliminar(int index) {
-        
-        if(indice<=index){
-        throw new IndexOutOfBoundsException("El indice  "+ index +" no existe " );
+        if (indice <= index) {
+            throw new IndexOutOfBoundsException("El indice  " + index + " no existe ");
         }
-        if(index==0){
-            try{    
-        return quitar();
-            }catch(Exception e){
-            //return null;
+        if (index == 0) {
+            try {
+                return quitar();
+            } catch (Exception e) {
+                //return null;
             }
         }
         Nodo actual = primero;
-        for (int i = 0; i < index-1; i++) {
-            actual=actual.siguiente;
-        }  
+        for (int i = 0; i < index - 1; i++) {
+            actual = actual.siguiente;
+        }
         T dato = (T) actual.siguiente.dato;
-        actual.siguiente=actual.siguiente.siguiente;
+        actual.siguiente = actual.siguiente.siguiente;
         return dato;
     }
+
     @Override
     public boolean eliminar(T objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Nodo actual = primero;
+        
+        for (int i = 0; i < indice; i++) {
+            
+            if (objeto == null) {
+                if (actual.dato == null) {
+                    if(indice==1){
+                        primero=null;
+                        ultimo=null;
+                    }
+                    if (actual == primero) {
+                        primero = actual.siguiente;
+                        primero.anterior = null;
+                    } else {
+                        actual.anterior.siguiente = actual.siguiente;
+                    }
+                    if (actual == ultimo) {
+                        ultimo = actual.anterior;
+                        ultimo.siguiente = null;
+                    } else {
+                        actual.siguiente.anterior = actual.anterior;
+                    }
+                    return true;
+                }
+                
+            } else {
+                if (objeto.equals(actual.dato)) {
+                    if(indice==1){
+                        primero=null;
+                        ultimo=null;
+                    }
+                    if (actual == primero) {
+                        primero = actual.siguiente;
+                        primero.anterior = null;
+                    } else {
+                        actual.anterior.siguiente = actual.siguiente;
+                    }
+                    if (actual == ultimo) {
+                        ultimo = actual.anterior;
+                        ultimo.siguiente = null;
+                    } else {
+                        actual.siguiente.anterior = actual.anterior;
+                    }
+                    return true;
+                }
+                
+            }
+            actual=actual.siguiente;
+        }
+        return false;
     }
 
     @Override
