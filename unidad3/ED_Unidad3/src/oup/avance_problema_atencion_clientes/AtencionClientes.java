@@ -1,3 +1,5 @@
+package oup.avance_problema_atencion_clientes;
+
 
 import java.time.LocalTime;
 import java.util.Scanner;

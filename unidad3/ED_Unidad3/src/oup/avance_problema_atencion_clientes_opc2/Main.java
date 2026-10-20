@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pruebaclientes;
+package oup.avance_problema_atencion_clientes_opc2;
 
 /**
  *
@@ -105,8 +105,8 @@ public class Main {
 
         @Override
         public int compareTo(Persona otra) {
-            if (this.fechaCaducidad.compareTo(otra.fechaCaducidad)==0)
-                return this.numero.compareTo(otra.numero)*-1;
+            if (this.horaLlegada - otra.horaLlegada==0)
+                return this.nombre.compareTo(otra.nombre)*-1;
             else
                 return this.horaLlegada - otra.horaLlegada;
         }

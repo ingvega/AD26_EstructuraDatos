@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ed_unidad3;
+package pila_estructura_base;
 
 import java.util.EmptyStackException;
 import java.util.Arrays;

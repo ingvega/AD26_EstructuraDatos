@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package bitacota;
+package oup.bitacora_sana_distancia;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,7 +55,7 @@ class Pila<T> implements TDAPila<T> {
     @Override
     public void agregar(T elemento) {
         if (canElementos == elementos.length) {
-            elementos = Arrays.copyOf(elementos, canElementos + cap);
+            elementos = Arrays.copyOf(elementos, canElementos + capacidad);
         }
         elementos[canElementos++] = elemento;
     }
