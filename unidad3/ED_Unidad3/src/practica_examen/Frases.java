@@ -29,7 +29,7 @@ public class Frases {
 //        String palabraSinComa=palabra.replace(",","");
 //        String palabraSinComaSinPunto=palabraSinComa.replace(".","");
         
-        //palabrasPQ.addAll(Arrays.asList(palabras));
+       //palabrasPQ.addAll(Arrays.asList(palabras));
         for (int i = 0; i < palabras.length; i++) {
             palabrasPQ.add(palabras[i].replace(",", "").replace(".", ""));
         }
