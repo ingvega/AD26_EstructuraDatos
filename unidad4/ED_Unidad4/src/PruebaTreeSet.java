@@ -2,17 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ed_unidad4;
+
 
 import java.util.Scanner;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
  *
  * @author paveg
  */
-public class ED_Unidad4 {
+public class PruebaTreeSet {
 
     /**
      * @param args the command line arguments
